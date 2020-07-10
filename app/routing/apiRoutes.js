@@ -6,9 +6,25 @@ module.exports = function(app) {
     });
 
     app.post("/api/friends", function(req, res) {
-        //matching algorithm goes here
+        var user = req.body
+        var bestFriendIndex = 0;
+        var minimumDifference = 1000;
 
-        res.json(true);
+        for(var i = 0; i < friends.length; i++) {
+          var totalDifference = 0;
+          for(var j = 0; j < friends[i].scores.length; j++) {
+            totalDifference += Math.abs(user.scores[j] - friends[i].scores[j]);
+          }
+          //if new min change index and update min
+          if(totalDifference < minimumDifference) {
+            bestFriendIndex = i;
+            minimumDifference = totalDifference;
+          }
+        }
+
+        friends.push(user); 
+        res.json(friends[bestFriendIndex]);
+      
     });
 
 };
