@@ -6,6 +6,8 @@ module.exports = function(app) {
     });
 
     app.post("/api/friends", function(req, res) {
+        //matching algorithm goes here
+
         res.json(true);
     });
 
