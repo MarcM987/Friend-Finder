@@ -15,7 +15,7 @@ module.exports = function(app) {
           for(var j = 0; j < friends[i].scores.length; j++) {
             totalDifference += Math.abs(user.scores[j] - friends[i].scores[j]);
           }
-          //if new min change index and update min
+          //if new min change index and update min/
           if(totalDifference < minimumDifference) {
             bestFriendIndex = i;
             minimumDifference = totalDifference;
