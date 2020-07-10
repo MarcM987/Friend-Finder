@@ -1,5 +1,3 @@
-$( document ).ready(function() {
-
 $("#submit").on("click", function(event) {
     event.preventDefault();
 
@@ -44,6 +42,5 @@ $("#submit").on("click", function(event) {
     } else {
       alert("Please fill out all fields before submitting!");
     }
-  });
 
 });
